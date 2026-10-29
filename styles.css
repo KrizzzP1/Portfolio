@@ -94,17 +94,20 @@ section {
     margin: 0 auto;
 }
 
+/* Alternate sections: full-width background, content stays aligned with the rest */
 .alt-bg {
-    background: var(--bg-alt);
-    max-width: 100%;
-    padding: 5.5rem var(--pad-x);
+    position: relative;
+    isolation: isolate;
 }
-.alt-bg > .section-header,
-.alt-bg > .skills-grid,
-.alt-bg > .edu-card {
-    max-width: var(--max-w);
-    margin-left: auto;
-    margin-right: auto;
+.alt-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(50% - 50vw);
+    right: calc(50% - 50vw);
+    background: var(--bg-alt);
+    z-index: -1;
 }
 
 /* ── Navbar ── */
@@ -290,7 +293,7 @@ section {
 /* ── Skills ── */
 .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.5rem;
 }
 .lang-card {
@@ -308,6 +311,8 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
     margin-bottom: 1rem;
 }
 .lang-icon {
@@ -415,6 +420,9 @@ section {
     color: var(--muted);
     line-height: 1.7;
 }
+.project-card.featured { grid-column: 1 / -1; }
+.project-card .entry-points { margin-top: 0.4rem; }
+
 .project-tags {
     display: flex;
     flex-wrap: wrap;
@@ -500,6 +508,41 @@ section {
     color: var(--accent);
     font-size: 0.7rem;
 }
+.edu-right > :last-child { margin-bottom: 0; }
+
+/* ── Stacked cards (Experience, Education) ── */
+.stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.entry-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.entry-points li {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-left: 1.1rem;
+    position: relative;
+}
+.entry-points li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+.list-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin: 1.25rem 0 0.6rem;
+}
 
 /* ── Contact ── */
 .contact-layout { max-width: 560px; }
@@ -583,6 +626,7 @@ footer {
 
 /* ── Responsive: tablet ── */
 @media (max-width: 860px) {
+    .nav-links { gap: 1.25rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .skills-grid { grid-template-columns: 1fr; }
     .edu-courses { grid-template-columns: 1fr; }
@@ -611,5 +655,13 @@ footer {
 
     .projects-grid { grid-template-columns: 1fr; }
 
+    .edu-card { flex-direction: column; gap: 1rem; padding: 1.5rem 1.25rem; }
+
     footer { flex-direction: column; text-align: center; }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-in { opacity: 1; transform: none; transition: none; }
 }
