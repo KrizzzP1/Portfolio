@@ -219,8 +219,31 @@ section {
     font-size: 1rem;
     color: var(--muted);
     line-height: 1.8;
+    margin-bottom: 1.25rem;
+    max-width: 520px;
+}
+
+/* What I'm looking for, with a green "available" dot */
+.hero-status {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--text);
     margin-bottom: 2.25rem;
     max-width: 520px;
+}
+.hero-status::before {
+    content: '';
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+    margin-top: 0.55em;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 0 4px rgba(63, 185, 80, 0.15);
 }
 
 .hero-actions {
@@ -664,4 +687,42 @@ footer {
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .fade-in { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── Print / Save as PDF ──
+   Dark text on white paper, every section visible (the fade-in only
+   runs when you scroll), and no screen-only buttons. */
+@media print {
+    :root {
+        --bg:         #fff;
+        --bg-alt:     #fff;
+        --bg-card:    #fff;
+        --accent:     #2456d3;
+        --accent-dim: transparent;
+        --accent-mid: #c8c8c8;
+        --text:       #111;
+        --muted:      #444;
+        --border:     #d0d0d0;
+    }
+    body { font-size: 12px; line-height: 1.5; }
+    .fade-in { opacity: 1 !important; transform: none !important; }
+    #navbar, .scroll-top, .hero-actions, .social-links, .project-top, .edu-left { display: none !important; }
+    #hero { min-height: 0; padding: 0 0 1rem; }
+    .hero-inner { max-width: none; }
+    .hero-inner h1 { color: var(--text); font-size: 2.25rem; margin-bottom: 0.75rem; }
+    .hero-tagline, .hero-status { max-width: none; margin-bottom: 0.5rem; }
+    .hero-status::before { box-shadow: none; }
+    section { padding: 1rem 0; max-width: none; }
+    .alt-bg::before { display: none; }
+    .section-header { margin-bottom: 0.75rem; break-after: avoid; }
+    .about-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .about-card { padding: 0.6rem 0.9rem; }
+    .skills-grid { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+    .edu-courses { grid-template-columns: 1fr 1fr; }
+    .stack, .projects-grid { gap: 0.75rem; }
+    .edu-card, .project-card, .lang-card { padding: 1rem 1.25rem; }
+    .about-card, .lang-card, .contact-row, .entry-points li { break-inside: avoid; }
+    h3 { break-after: avoid; }
+    footer { padding: 1rem 0; }
 }
