@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kriz Pena — Information Security &amp; Computer Science</title>
     <meta name="description" content="Kriz Pena, Information Security Student Analyst at UTRGV's Regional Security Operations Center. Computer Science and Criminal Justice double major with a minor in Applied Statistics and Data Science.">
+    <link rel="canonical" href="https://krizzzp1.github.io/Portfolio/">
+
+    <!-- Link previews (LinkedIn, Discord, texts) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://krizzzp1.github.io/Portfolio/">
+    <meta property="og:title" content="Kriz Pena — Information Security &amp; Computer Science">
+    <meta property="og:description" content="Information Security Student Analyst at UTRGV's Regional Security Operations Center. Computer Science and Criminal Justice double major.">
+    <meta property="og:image" content="https://krizzzp1.github.io/Portfolio/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Kriz Pena, Information Security Student Analyst">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Tab icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,8 +56,9 @@
                 endpoints across the Rio Grande Valley. I'm double majoring in Computer Science
                 and Criminal Justice, with a minor in Applied Statistics and Data Science.
             </p>
+            <p class="hero-status">Looking for cybersecurity and software engineering internships</p>
             <div class="hero-actions">
-                <a href="#experience" class="btn btn-primary">View Experience</a>
+                <a href="https://www.linkedin.com/in/krizpena" class="btn btn-primary" target="_blank" rel="noopener">Resume on LinkedIn</a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
             <div class="social-links">
@@ -206,8 +224,8 @@
                 </p>
                 <ul class="entry-points">
                     <li>Designed a 58-node decision tree covering 4th, 5th, 6th, and 8th Amendment rights, including the scenarios it covers, how users move through it, and every conclusion they can reach.</li>
-                    <li>Researched and wrote all of the legal content: the rights at each outcome, the exact phrasing to assert them, and 30 Texas statute notes on top of federal law.</li>
-                    <li>Scoped it for the RGV. It's fully bilingual for a 90%+ Spanish-speaking population and has a branch for the Falfurrias and Sarita checkpoints.</li>
+                    <li>Researched and wrote all of the legal content: the rights at each outcome, the exact phrasing to assert them, and 13 Texas law notes on top of federal law.</li>
+                    <li>Scoped it for the RGV. It's fully bilingual, since about 4 in 5 people in the Valley speak Spanish at home, and it has a branch for the Falfurrias and Sarita checkpoints.</li>
                     <li>Directed the build end-to-end with AI development tools, through testing and deployment to a live site that runs fully offline.</li>
                 </ul>
                 <div class="project-tags">
@@ -215,6 +233,35 @@
                     <span>Legal Research</span>
                     <span>Bilingual</span>
                     <span>AI-Assisted Build</span>
+                </div>
+            </article>
+
+            <article class="project-card featured">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                </div>
+                <h3>Isolated VM Attack Lab</h3>
+                <p class="project-category">Lab build and technical manual — Fall 2026</p>
+                <p class="project-desc">
+                    A virtual lab on my laptop with a Kali Linux attacker and a deliberately
+                    vulnerable Metasploitable 2 target on their own internal network. The target is
+                    cut off from the internet, so a machine built to be hacked never touches a real
+                    network. A class assignment only asked for an instruction manual. I picked this
+                    topic so I'd learn something building it.
+                </p>
+                <ul class="entry-points">
+                    <li>Set up the network in VirtualBox: Kali gets internet through NAT plus a second adapter on an internal-only network, and the target sits on that internal network alone.</li>
+                    <li>Disabled USB in the VM settings. VirtualBox kept turning it back on until I switched the pointing device to a PS/2 mouse.</li>
+                    <li>Confirmed the target can't reach the internet, then captured FTP traffic between the two machines in Wireshark.</li>
+                    <li>Wrote a 12-step manual for the build and tested it on my own hardware, which turned up steps that didn't match current versions of VirtualBox and Kali, like Kali naming its network interfaces eth0 and eth1.</li>
+                </ul>
+                <div class="project-tags">
+                    <span>VirtualBox</span>
+                    <span>Kali Linux</span>
+                    <span>Metasploitable 2</span>
+                    <span>Wireshark</span>
+                    <span>Network Isolation</span>
+                    <span>Technical Writing</span>
                 </div>
             </article>
 
@@ -258,7 +305,8 @@
                     <li>Network alert triage</li>
                     <li>Escalation &amp; documentation in Jira</li>
                     <li>Wireshark</li>
-                    <li>Linux</li>
+                    <li>Linux (Mint and Kali)</li>
+                    <li>VirtualBox</li>
                 </ul>
             </div>
 
@@ -273,7 +321,6 @@
                 <ul class="lang-topics">
                     <li>CompTIA Security+ (in progress)</li>
                     <li>Hack The Box Academy: Information Security, Networking, Network Foundations, Windows &amp; Linux Fundamentals, Web Applications</li>
-                    <li>Udemy coursework</li>
                 </ul>
             </div>
 
@@ -299,7 +346,7 @@
                     <p class="edu-meta">Minor: Applied Statistics and Data Science &nbsp;·&nbsp; Sep 2025 – May 2029 (expected) &nbsp;·&nbsp; Edinburg, TX</p>
                     <ul class="entry-points">
                         <li>4.0 GPA at UTRGV, President's List for Fall 2025 and Spring 2026</li>
-                        <li>American Criminal Justice Association (ACJA): placed in 7 of 7 competition events (4 gold, 2 silver, 1 bronze)</li>
+                        <li>American Criminal Justice Association (ACJA): placed in 7 of 7 events at regionals (4 gold, 2 silver, 1 bronze)</li>
                     </ul>
                     <p class="list-label">Relevant Coursework</p>
                     <ul class="edu-courses">
