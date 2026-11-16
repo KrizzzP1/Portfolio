@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Only files from this site can load: no CDNs, no trackers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#0d1117">
     <title>Kriz Pena — Information Security &amp; Computer Science</title>
     <meta name="description" content="Kriz Pena, Information Security Student Analyst at UTRGV's Regional Security Operations Center, double majoring in Computer Science and Criminal Justice.">
+    <meta name="author" content="Kriz Pena">
     <link rel="canonical" href="https://krizzzp1.github.io/Portfolio/">
 
     <!-- Link previews (LinkedIn, Discord, texts) -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Kriz Pena">
+    <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://krizzzp1.github.io/Portfolio/">
     <meta property="og:title" content="Kriz Pena — Information Security &amp; Computer Science">
     <meta property="og:description" content="Information Security Student Analyst at UTRGV's Regional Security Operations Center. Computer Science and Criminal Justice double major.">
@@ -22,21 +29,57 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
+    <link rel="preload" href="fonts/inter-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+
+    <!-- Tells search engines who this page is about -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Kriz Pena",
+        "url": "https://krizzzp1.github.io/Portfolio/",
+        "jobTitle": "Information Security Student Analyst",
+        "worksFor": { "@type": "Organization", "name": "UTRGV Regional Security Operations Center" },
+        "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Texas Rio Grande Valley" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Texas Southmost College" },
+        "knowsLanguage": ["English", "Spanish"],
+        "sameAs": ["https://github.com/KrizzzP1", "https://www.linkedin.com/in/krizpena"]
+    }
+    </script>
 </head>
 <body>
 
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <!-- Icons: Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0) -->
+    <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="i-envelope" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></symbol>
+        <symbol id="i-github" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></symbol>
+        <symbol id="i-linkedin-in" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></symbol>
+        <symbol id="i-graduation-cap" viewBox="0 0 640 512"><path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L15.8 137.4C6.3 140.9 0 149.9 0 160s6.3 19.1 15.8 22.6l57.9 20.9C57.3 229.3 48 259.8 48 291.9v28.1c0 28.4-10.8 57.7-22.3 80.8c-6.5 13-13.9 25.8-22.5 37.6C0 442.7-.9 448.3 .9 453.4s6 8.9 11.2 10.2l64 16c4.2 1.1 8.7 .3 12.4-2s6.3-6.1 7.1-10.4c8.6-42.8 4.3-81.2-2.1-108.7C90.3 344.3 86 329.8 80 316.5V291.9c0-30.2 10.2-58.7 27.9-81.5c12.9-15.5 29.6-28 49.2-35.7l157-61.7c8.2-3.2 17.5 .8 20.7 9s-.8 17.5-9 20.7l-157 61.7c-12.4 4.9-23.3 12.4-32.2 21.6l159.6 57.6c7.6 2.7 15.6 4.1 23.7 4.1s16.1-1.4 23.7-4.1L624.2 182.6c9.5-3.4 15.8-12.5 15.8-22.6s-6.3-19.1-15.8-22.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L496.7 262.6 354.5 314c-11.1 4-22.8 6-34.5 6s-23.5-2-34.5-6L143.3 262.6 128 408z"/></symbol>
+        <symbol id="i-book-open" viewBox="0 0 576 512"><path d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/></symbol>
+        <symbol id="i-chart-line" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64V400c0 44.2 35.8 80 80 80H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H80c-8.8 0-16-7.2-16-16V64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></symbol>
+        <symbol id="i-award" viewBox="0 0 384 512"><path d="M173.8 5.5c11-7.3 25.4-7.3 36.4 0L228 17.2c6 3.9 13 5.8 20.1 5.4l21.3-1.3c13.2-.8 25.6 6.4 31.5 18.2l9.6 19.1c3.2 6.4 8.4 11.5 14.7 14.7L344.5 83c11.8 5.9 19 18.3 18.2 31.5l-1.3 21.3c-.4 7.1 1.5 14.2 5.4 20.1l11.8 17.8c7.3 11 7.3 25.4 0 36.4L366.8 228c-3.9 6-5.8 13-5.4 20.1l1.3 21.3c.8 13.2-6.4 25.6-18.2 31.5l-19.1 9.6c-6.4 3.2-11.5 8.4-14.7 14.7L301 344.5c-5.9 11.8-18.3 19-31.5 18.2l-21.3-1.3c-7.1-.4-14.2 1.5-20.1 5.4l-17.8 11.8c-11 7.3-25.4 7.3-36.4 0L156 366.8c-6-3.9-13-5.8-20.1-5.4l-21.3 1.3c-13.2 .8-25.6-6.4-31.5-18.2l-9.6-19.1c-3.2-6.4-8.4-11.5-14.7-14.7L39.5 301c-11.8-5.9-19-18.3-18.2-31.5l1.3-21.3c.4-7.1-1.5-14.2-5.4-20.1L5.5 210.2c-7.3-11-7.3-25.4 0-36.4L17.2 156c3.9-6 5.8-13 5.4-20.1l-1.3-21.3c-.8-13.2 6.4-25.6 18.2-31.5l19.1-9.6C65 70.2 70.2 65 73.4 58.6L83 39.5c5.9-11.8 18.3-19 31.5-18.2l21.3 1.3c7.1 .4 14.2-1.5 20.1-5.4L173.8 5.5zM272 192a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM1.3 441.8L44.4 339.3c.2 .1 .3 .2 .4 .4l9.6 19.1c11.7 23.2 36 37.3 62 35.8l21.3-1.3c.2 0 .5 0 .7 .2l17.8 11.8c5.1 3.3 10.5 5.9 16.1 7.7l-37.6 89.3c-2.3 5.5-7.4 9.2-13.3 9.7s-11.6-2.2-14.8-7.2L74.4 455.5l-56.1 8.3c-5.7 .8-11.4-1.5-15-6s-4.3-10.7-2.1-16zm248 60.4L211.7 413c5.6-1.8 11-4.3 16.1-7.7l17.8-11.8c.2-.1 .4-.2 .7-.2l21.3 1.3c26 1.5 50.3-12.6 62-35.8l9.6-19.1c.1-.2 .2-.3 .4-.4l43.2 102.5c2.2 5.3 1.4 11.4-2.1 16s-9.3 6.9-15 6l-56.1-8.3-32.2 49.2c-3.2 5-8.9 7.7-14.8 7.2s-11-4.3-13.3-9.7z"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 448 512"><path d="M96 32V64H48C21.5 64 0 85.5 0 112v48H448V112c0-26.5-21.5-48-48-48H352V32c0-17.7-14.3-32-32-32s-32 14.3-32 32V64H160V32c0-17.7-14.3-32-32-32S96 14.3 96 32zM448 192H0V464c0 26.5 21.5 48 48 48H400c26.5 0 48-21.5 48-48V192z"/></symbol>
+        <symbol id="i-language" viewBox="0 0 640 512"><path d="M0 128C0 92.7 28.7 64 64 64H256h48 16H576c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H320 304 256 64c-35.3 0-64-28.7-64-64V128zm320 0V384H576V128H320zM178.3 175.9c-3.2-7.2-10.4-11.9-18.3-11.9s-15.1 4.7-18.3 11.9l-64 144c-4.5 10.1 .1 21.9 10.2 26.4s21.9-.1 26.4-10.2l8.9-20.1h73.6l8.9 20.1c4.5 10.1 16.3 14.6 26.4 10.2s14.6-16.3 10.2-26.4l-64-144zM160 233.2L179 276H141l19-42.8zM448 164c11 0 20 9 20 20v4h44 16c11 0 20 9 20 20s-9 20-20 20h-2l-1.6 4.5c-8.9 24.4-22.4 46.6-39.6 65.4c.9 .6 1.8 1.1 2.7 1.6l18.9 11.3c9.5 5.7 12.5 18 6.9 27.4s-18 12.5-27.4 6.9l-18.9-11.3c-4.5-2.7-8.8-5.5-13.1-8.5c-10.6 7.5-21.9 14-34 19.4l-3.6 1.6c-10.1 4.5-21.9-.1-26.4-10.2s.1-21.9 10.2-26.4l3.6-1.6c6.4-2.9 12.6-6.1 18.5-9.8l-12.2-12.2c-7.8-7.8-7.8-20.5 0-28.3s20.5-7.8 28.3 0l14.6 14.6 .5 .5c12.4-13.1 22.5-28.3 29.8-45H448 376c-11 0-20-9-20-20s9-20 20-20h52v-4c0-11 9-20 20-20z"/></symbol>
+        <symbol id="i-shield-halved" viewBox="0 0 512 512"><path d="M256 0c4.6 0 9.2 1 13.4 2.9L457.7 82.8c22 9.3 38.4 31 38.3 57.2c-.5 99.2-41.3 280.7-213.6 363.2c-16.7 8-36.1 8-52.8 0C57.3 420.7 16.5 239.2 16 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.8 1 251.4 0 256 0zm0 66.8V444.8C394 378 431.1 230.1 432 141.4L256 66.8l0 0z"/></symbol>
+        <symbol id="i-life-ring" viewBox="0 0 512 512"><path d="M367.2 412.5C335.9 434.9 297.5 448 256 448s-79.9-13.1-111.2-35.5l58-58c15.8 8.6 34 13.5 53.3 13.5s37.4-4.9 53.3-13.5l58 58zm90.7 .8c33.8-43.4 54-98 54-157.3s-20.2-113.9-54-157.3c9-12.5 7.9-30.1-3.4-41.3S425.8 45 413.3 54C369.9 20.2 315.3 0 256 0S142.1 20.2 98.7 54c-12.5-9-30.1-7.9-41.3 3.4S45 86.2 54 98.7C20.2 142.1 0 196.7 0 256s20.2 113.9 54 157.3c-9 12.5-7.9 30.1 3.4 41.3S86.2 467 98.7 458c43.4 33.8 98 54 157.3 54s113.9-20.2 157.3-54c12.5 9 30.1 7.9 41.3-3.4s12.4-28.8 3.4-41.3zm-45.5-46.1l-58-58c8.6-15.8 13.5-34 13.5-53.3s-4.9-37.4-13.5-53.3l58-58C434.9 176.1 448 214.5 448 256s-13.1 79.9-35.5 111.2zM367.2 99.5l-58 58c-15.8-8.6-34-13.5-53.3-13.5s-37.4 4.9-53.3 13.5l-58-58C176.1 77.1 214.5 64 256 64s79.9 13.1 111.2 35.5zM157.5 309.3l-58 58C77.1 335.9 64 297.5 64 256s13.1-79.9 35.5-111.2l58 58c-8.6 15.8-13.5 34-13.5 53.3s4.9 37.4 13.5 53.3zM208 256a48 48 0 1 1 96 0 48 48 0 1 1 -96 0z"/></symbol>
+        <symbol id="i-scale-balanced" viewBox="0 0 640 512"><path d="M384 32H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H398.4c-5.2 25.8-22.9 47.1-46.4 57.3V448H512c17.7 0 32 14.3 32 32s-14.3 32-32 32H320 128c-17.7 0-32-14.3-32-32s14.3-32 32-32H288V153.3c-23.5-10.3-41.2-31.6-46.4-57.3H128c-17.7 0-32-14.3-32-32s14.3-32 32-32H256c14.6-19.4 37.8-32 64-32s49.4 12.6 64 32zm55.6 288H584.4L512 195.8 439.6 320zM512 416c-62.9 0-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C627.2 382 574.9 416 512 416zM126.8 195.8L54.4 320H199.3L126.8 195.8zM.9 337.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C242 382 189.7 416 126.8 416S11.7 382 .9 337.1z"/></symbol>
+        <symbol id="i-arrow-up-right-from-square" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></symbol>
+        <symbol id="i-network-wired" viewBox="0 0 640 512"><path d="M256 64H384v64H256V64zM240 0c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48h48v32H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h96v32H80c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H240c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H192V288H448v32H400c-26.5 0-48 21.5-48 48v96c0 26.5 21.5 48 48 48H560c26.5 0 48-21.5 48-48V368c0-26.5-21.5-48-48-48H512V288h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H352V192h48c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H240zM96 448V384H224v64H96zm320-64H544v64H416V384z"/></symbol>
+        <symbol id="i-file-pdf" viewBox="0 0 512 512"><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V304H176c-35.3 0-64 28.7-64 64V512H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM176 352h32c30.9 0 56 25.1 56 56s-25.1 56-56 56H192v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V448 368c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24H192v48h16zm96-80h32c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H304c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H320v96h16zm80-112c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H448v48c0 8.8-7.2 16-16 16s-16-7.2-16-16V432 368z"/></symbol>
+        <symbol id="i-building-columns" viewBox="0 0 512 512"><path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></symbol>
+        <symbol id="i-football" viewBox="0 0 512 512"><path d="M247.5 25.4c-13.5 3.3-26.4 7.2-38.6 11.7C142.9 61.6 96.7 103.6 66 153.6c-18.3 29.8-30.9 62.3-39.2 95.4L264.5 486.6c13.5-3.3 26.4-7.2 38.6-11.7c66-24.5 112.2-66.5 142.9-116.5c18.3-29.8 30.9-62.3 39.1-95.3L247.5 25.4zM495.2 205.3c6.1-56.8 1.4-112.2-7.7-156.4c-2.7-12.9-13-22.9-26.1-25.1c-58.2-9.7-109.9-12-155.6-7.9L495.2 205.3zM206.1 496L16.8 306.7c-6.1 56.8-1.4 112.2 7.7 156.4c2.7 12.9 13 22.9 26.1 25.1c58.2 9.7 109.9 12 155.6 7.9zm54.6-331.3c6.2-6.2 16.4-6.2 22.6 0l64 64c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-64-64c-6.2-6.2-6.2-16.4 0-22.6zm-48 48c6.2-6.2 16.4-6.2 22.6 0l64 64c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-64-64c-6.2-6.2-6.2-16.4 0-22.6zm-48 48c6.2-6.2 16.4-6.2 22.6 0l64 64c6.2 6.2 6.2 16.4 0 22.6s-16.4 6.2-22.6 0l-64-64c-6.2-6.2-6.2-16.4 0-22.6z"/></symbol>
+        <symbol id="i-chevron-up" viewBox="0 0 512 512"><path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/></symbol>
+    </svg>
     <!-- Navigation -->
     <header id="navbar">
         <a href="#hero" class="brand">Kriz Pena</a>
-        <button class="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+        <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span><span></span>
         </button>
-        <nav class="nav-links">
+        <nav class="nav-links" id="nav-links" aria-label="Main">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
@@ -46,7 +89,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main" tabindex="-1">
 
     <!-- Hero -->
     <section id="hero">
@@ -65,16 +108,34 @@
             </div>
             <div class="social-links">
                 <a href="mailto:kpena3@hotmail.com" aria-label="Email">
-                    <i class="fas fa-envelope"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-envelope"/></svg>
                 </a>
                 <a href="https://github.com/KrizzzP1" aria-label="GitHub" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i>
+                    <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/krizpena" aria-label="LinkedIn" target="_blank" rel="noopener">
-                    <i class="fab fa-linkedin-in"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg>
                 </a>
             </div>
         </div>
+        <ul class="hero-stats" aria-label="Highlights">
+            <li>
+                <span class="stat-value">Level 2</span>
+                <span class="stat-label">Student analyst at the RSOC, promoted within three months</span>
+            </li>
+            <li>
+                <span class="stat-value">Winner</span>
+                <span class="stat-label">Best Beginner at Frontera Hacks 2026</span>
+            </li>
+            <li>
+                <span class="stat-value">4.0 GPA</span>
+                <span class="stat-label">At UTRGV, President's List</span>
+            </li>
+            <li>
+                <span class="stat-value">4 gold</span>
+                <span class="stat-label">ACJA regionals, placed in all 7 events</span>
+            </li>
+        </ul>
     </section>
 
     <!-- About -->
@@ -109,42 +170,42 @@
             </div>
             <div class="about-cards">
                 <div class="about-card">
-                    <i class="fas fa-graduation-cap"></i>
+                    <svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-graduation-cap"/></svg>
                     <div>
                         <span class="card-label">University</span>
                         <span class="card-value">University of Texas Rio Grande Valley</span>
                     </div>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-book-open"></i>
+                    <svg class="icon" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><use href="#i-book-open"/></svg>
                     <div>
                         <span class="card-label">Majors</span>
                         <span class="card-value">Computer Science &amp; Criminal Justice</span>
                     </div>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-chart-line"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-chart-line"/></svg>
                     <div>
                         <span class="card-label">Minor</span>
                         <span class="card-value">Applied Statistics and Data Science</span>
                     </div>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-award"></i>
+                    <svg class="icon" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#i-award"/></svg>
                     <div>
                         <span class="card-label">GPA</span>
                         <span class="card-value">4.0 at UTRGV &nbsp;·&nbsp; President's List</span>
                     </div>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-calendar"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg>
                     <div>
                         <span class="card-label">Expected Graduation</span>
                         <span class="card-value">May 2029</span>
                     </div>
                 </div>
                 <div class="about-card">
-                    <i class="fas fa-language"></i>
+                    <svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-language"/></svg>
                     <div>
                         <span class="card-label">Languages</span>
                         <span class="card-value">English &amp; Spanish (fluent)</span>
@@ -164,7 +225,7 @@
 
             <article class="edu-card">
                 <div class="edu-left">
-                    <i class="fas fa-shield-halved"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-shield-halved"/></svg>
                 </div>
                 <div class="edu-right">
                     <h3>Information Security Student Analyst (Level 2)</h3>
@@ -181,7 +242,7 @@
 
             <article class="edu-card">
                 <div class="edu-left">
-                    <i class="fas fa-life-ring"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-life-ring"/></svg>
                 </div>
                 <div class="edu-right">
                     <h3>Senior Ocean Lifeguard</h3>
@@ -206,71 +267,105 @@
         </div>
         <div class="projects-grid">
 
-            <article class="project-card featured">
-                <div class="project-top">
-                    <div class="project-icon"><i class="fas fa-scale-balanced"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/KrizzzP1/Know-The-Law" title="View repository" aria-label="Know The Law on GitHub" target="_blank" rel="noopener" class="project-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://krizzzp1.github.io/Know-The-Law/" title="Live site" aria-label="Know The Law live site" target="_blank" rel="noopener" class="project-link">
-                            <i class="fas fa-arrow-up-right-from-square"></i>
-                        </a>
+            <article class="project-card featured has-media">
+                <div class="project-body">
+                    <div class="project-top">
+                        <div class="project-icon"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-scale-balanced"/></svg></div>
+                        <div class="project-links">
+                            <a href="https://krizzzp1.github.io/Know-The-Law/" aria-label="Know The Law live site" target="_blank" rel="noopener" class="project-link">
+                                <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right-from-square"/></svg><span>Live site</span>
+                            </a>
+                            <a href="https://github.com/KrizzzP1/Know-The-Law" aria-label="Know The Law code on GitHub" target="_blank" rel="noopener" class="project-link">
+                                <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg><span>Code</span>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Know The Law</h3>
+                    <p class="project-category">Winner, Best Beginner — Frontera Hacks 2026</p>
+                    <p class="project-desc">
+                        A solo project for UTRGV's hackathon. It walks users through questions about
+                        their situation and explains the relevant laws in plain language, in English
+                        or Spanish.
+                    </p>
+                    <ul class="entry-points">
+                        <li>Designed a 58-node decision tree covering 4th, 5th, 6th, and 8th Amendment rights, including the scenarios it covers, how users move through it, and every conclusion they can reach.</li>
+                        <li>Researched and wrote all of the legal content: the rights at each outcome, the exact phrasing to assert them, and 13 Texas law notes on top of federal law.</li>
+                        <li>Scoped it for the RGV. It's fully bilingual, since about 4 in 5 people in the Valley speak Spanish at home, and it has a branch for the Falfurrias and Sarita checkpoints.</li>
+                        <li>Directed the build end-to-end with AI development tools, through testing and deployment to a live site that runs fully offline.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>Product Design</span>
+                        <span>Legal Research</span>
+                        <span>Bilingual</span>
+                        <span>AI-Assisted Build</span>
                     </div>
                 </div>
-                <h3>Know The Law</h3>
-                <p class="project-category">Winner, Best Beginner — Frontera Hacks 2026</p>
-                <p class="project-desc">
-                    A solo project for UTRGV's hackathon. It walks users through questions about
-                    their situation and explains the relevant laws in plain language, in English
-                    or Spanish.
-                </p>
-                <ul class="entry-points">
-                    <li>Designed a 58-node decision tree covering 4th, 5th, 6th, and 8th Amendment rights, including the scenarios it covers, how users move through it, and every conclusion they can reach.</li>
-                    <li>Researched and wrote all of the legal content: the rights at each outcome, the exact phrasing to assert them, and 13 Texas law notes on top of federal law.</li>
-                    <li>Scoped it for the RGV. It's fully bilingual, since about 4 in 5 people in the Valley speak Spanish at home, and it has a branch for the Falfurrias and Sarita checkpoints.</li>
-                    <li>Directed the build end-to-end with AI development tools, through testing and deployment to a live site that runs fully offline.</li>
-                </ul>
-                <div class="project-tags">
-                    <span>Product Design</span>
-                    <span>Legal Research</span>
-                    <span>Bilingual</span>
-                    <span>AI-Assisted Build</span>
-                </div>
+                <figure class="project-media screenshot">
+                    <img src="images/know-the-law.webp" width="1200" height="900" loading="lazy" decoding="async"
+                         alt="Know The Law showing a 4th Amendment result: the rights you can assert, what to say, and a Texas law note, with the amendment menu on the left.">
+                </figure>
             </article>
 
-            <article class="project-card featured">
-                <div class="project-top">
-                    <div class="project-icon"><i class="fas fa-network-wired"></i></div>
-                    <div class="project-links">
-                        <a href="vm-lab-manual.pdf" title="Read the manual (PDF)" aria-label="VM lab manual (PDF)" target="_blank" rel="noopener" class="project-link">
-                            <i class="fas fa-file-pdf"></i>
-                        </a>
+            <article class="project-card featured has-media">
+                <div class="project-body">
+                    <div class="project-top">
+                        <div class="project-icon"><svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-network-wired"/></svg></div>
+                        <div class="project-links">
+                            <a href="vm-lab-manual.pdf" aria-label="Read the manual (PDF), Isolated VM Attack Lab" target="_blank" rel="noopener" class="project-link">
+                                <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-file-pdf"/></svg><span>Read the manual (PDF)</span>
+                            </a>
+                        </div>
+                    </div>
+                    <h3>Isolated VM Attack Lab</h3>
+                    <p class="project-category">Lab build and technical manual — Fall 2026</p>
+                    <p class="project-desc">
+                        A virtual lab on my laptop with a Kali Linux attacker and a deliberately
+                        vulnerable Metasploitable 2 target on their own internal network. The target is
+                        cut off from the internet, so a machine built to be hacked never touches a real
+                        network. A class assignment only asked for an instruction manual. I picked this
+                        topic so I'd learn something building it.
+                    </p>
+                    <ul class="entry-points">
+                        <li>Set up the network in VirtualBox: Kali gets internet through NAT plus a second adapter on an internal-only network, and the target sits on that internal network alone.</li>
+                        <li>Disabled USB in the VM settings. VirtualBox kept turning it back on until I switched the pointing device to a PS/2 mouse.</li>
+                        <li>Confirmed the target can't reach the internet, then logged in to its FTP server from Kali and used Wireshark to capture the username and password in plain text.</li>
+                        <li>Wrote a 13-step manual for the build and tested it on my own hardware, which turned up steps that didn't match current versions of VirtualBox and Kali, like Kali naming its network interfaces eth0 and eth1.</li>
+                    </ul>
+                    <div class="project-tags">
+                        <span>VirtualBox</span>
+                        <span>Kali Linux</span>
+                        <span>Metasploitable 2</span>
+                        <span>Wireshark</span>
+                        <span>Network Isolation</span>
+                        <span>Technical Writing</span>
                     </div>
                 </div>
-                <h3>Isolated VM Attack Lab</h3>
-                <p class="project-category">Lab build and technical manual — Fall 2026</p>
-                <p class="project-desc">
-                    A virtual lab on my laptop with a Kali Linux attacker and a deliberately
-                    vulnerable Metasploitable 2 target on their own internal network. The target is
-                    cut off from the internet, so a machine built to be hacked never touches a real
-                    network. A class assignment only asked for an instruction manual. I picked this
-                    topic so I'd learn something building it.
-                </p>
-                <ul class="entry-points">
-                    <li>Set up the network in VirtualBox: Kali gets internet through NAT plus a second adapter on an internal-only network, and the target sits on that internal network alone.</li>
-                    <li>Disabled USB in the VM settings. VirtualBox kept turning it back on until I switched the pointing device to a PS/2 mouse.</li>
-                    <li>Confirmed the target can't reach the internet, then logged in to its FTP server from Kali and used Wireshark to capture the username and password in plain text.</li>
-                    <li>Wrote a 13-step manual for the build and tested it on my own hardware, which turned up steps that didn't match current versions of VirtualBox and Kali, like Kali naming its network interfaces eth0 and eth1.</li>
-                </ul>
-                <div class="project-tags">
-                    <span>VirtualBox</span>
-                    <span>Kali Linux</span>
-                    <span>Metasploitable 2</span>
-                    <span>Wireshark</span>
-                    <span>Network Isolation</span>
-                    <span>Technical Writing</span>
-                </div>
+                <figure class="project-media diagram">
+                    <svg class="lab-diagram" viewBox="0 0 360 396" role="img" aria-labelledby="lab-title lab-desc">
+                        <title id="lab-title">Lab network diagram</title>
+                        <desc id="lab-desc">Kali Linux reaches the internet through VirtualBox NAT on eth0 (10.0.2.15). Kali's eth1 (10.0.0.6/24) and Metasploitable 2's eth0 (10.0.0.5/24) share the internal-only network labnet. Metasploitable has no NAT adapter, so it has no route to the internet.</desc>
+                        <rect class="dg-host" x="6" y="70" width="348" height="320" rx="12"/>
+                        <text x="20" y="381">Laptop running VirtualBox</text>
+                        <rect class="dg-cloud" x="20" y="12" width="140" height="34" rx="17"/>
+                        <text class="dg-strong" x="90" y="34" text-anchor="middle">Internet</text>
+                        <line class="dg-link" x1="90" y1="46" x2="90" y2="100"/>
+                        <text x="100" y="63">NAT</text>
+                        <rect class="dg-box" x="20" y="100" width="280" height="100" rx="8"/>
+                        <text class="dg-strong" x="36" y="128">Kali Linux <tspan class="dg-muted">· attacker</tspan></text>
+                        <text class="dg-mono" y="157"><tspan x="36">eth0</tspan><tspan x="84">10.0.2.15</tspan><tspan x="210">NAT</tspan></text>
+                        <text class="dg-mono" y="181"><tspan x="36">eth1</tspan><tspan x="84">10.0.0.6/24</tspan><tspan x="210">labnet</tspan></text>
+                        <line class="dg-link" x1="160" y1="200" x2="160" y2="268"/>
+                        <rect class="dg-pill" x="86" y="222" width="148" height="24" rx="12"/>
+                        <text class="dg-accent" x="160" y="238" text-anchor="middle">labnet (internal only)</text>
+                        <rect class="dg-box" x="20" y="268" width="280" height="100" rx="8"/>
+                        <text class="dg-strong" x="36" y="296">Metasploitable 2 <tspan class="dg-muted">· target</tspan></text>
+                        <text class="dg-mono" y="325"><tspan x="36">eth0</tspan><tspan x="84">10.0.0.5/24</tspan><tspan x="210">labnet</tspan></text>
+                        <text class="dg-warn" x="36" y="349">No NAT adapter, no route out</text>
+                        <polyline class="dg-blocked" points="300,318 330,318 330,29 160,29"/>
+                        <g class="dg-x" transform="translate(330 186)"><circle r="11"/><path d="M-4.5 -4.5 4.5 4.5 M4.5 -4.5 -4.5 4.5"/></g>
+                    </svg>
+                    <figcaption>Kali gets internet through NAT on eth0. Both machines share the internal-only labnet, the target has no adapter that leads out, and Kali doesn't forward traffic between the two networks.</figcaption>
+                </figure>
             </article>
 
         </div>
@@ -286,7 +381,7 @@
 
             <div class="lang-card">
                 <div class="lang-header">
-                    <span class="lang-icon">Programming</span>
+                    <h3 class="lang-icon">Programming</h3>
                     <span class="lang-label">Languages</span>
                 </div>
                 <p>
@@ -302,7 +397,7 @@
 
             <div class="lang-card">
                 <div class="lang-header">
-                    <span class="lang-icon">Security Tools</span>
+                    <h3 class="lang-icon">Security Tools</h3>
                     <span class="lang-label">Hands-on</span>
                 </div>
                 <p>
@@ -320,7 +415,7 @@
 
             <div class="lang-card">
                 <div class="lang-header">
-                    <span class="lang-icon">Training</span>
+                    <h3 class="lang-icon">Training</h3>
                     <span class="lang-label">Ongoing</span>
                 </div>
                 <p>
@@ -345,7 +440,7 @@
 
             <article class="edu-card">
                 <div class="edu-left">
-                    <i class="fas fa-graduation-cap"></i>
+                    <svg class="icon" viewBox="0 0 640 512" aria-hidden="true" focusable="false"><use href="#i-graduation-cap"/></svg>
                 </div>
                 <div class="edu-right">
                     <h3>Bachelor of Science</h3>
@@ -370,7 +465,7 @@
 
             <article class="edu-card">
                 <div class="edu-left">
-                    <i class="fas fa-building-columns"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-building-columns"/></svg>
                 </div>
                 <div class="edu-right">
                     <h3>Associate of Arts</h3>
@@ -382,7 +477,7 @@
 
             <article class="edu-card">
                 <div class="edu-left">
-                    <i class="fas fa-football"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-football"/></svg>
                 </div>
                 <div class="edu-right">
                     <h3>Freshman Year</h3>
@@ -408,15 +503,15 @@
             </p>
             <div class="contact-list">
                 <a href="mailto:kpena3@hotmail.com" class="contact-row">
-                    <i class="fas fa-envelope"></i>
+                    <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-envelope"/></svg>
                     <span>kpena3@hotmail.com</span>
                 </a>
                 <a href="https://github.com/KrizzzP1" class="contact-row" target="_blank" rel="noopener">
-                    <i class="fab fa-github"></i>
+                    <svg class="icon" viewBox="0 0 496 512" aria-hidden="true" focusable="false"><use href="#i-github"/></svg>
                     <span>github.com/KrizzzP1</span>
                 </a>
                 <a href="https://www.linkedin.com/in/krizpena" class="contact-row" target="_blank" rel="noopener">
-                    <i class="fab fa-linkedin-in"></i>
+                    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><use href="#i-linkedin-in"/></svg>
                     <span>linkedin.com/in/krizpena</span>
                 </a>
             </div>
@@ -427,66 +522,13 @@
 
     <!-- Footer -->
     <footer>
-        <span>Kriz Pena &copy; <span id="year"></span></span>
+        <span>Kriz Pena &copy; <span id="year">2026</span></span>
         <span>Computer Science &amp; Criminal Justice · UTRGV</span>
+        <span>No cookies or trackers · <a href="https://github.com/KrizzzP1/Portfolio" target="_blank" rel="noopener">Source on GitHub</a></span>
     </footer>
 
-    <button class="scroll-top" id="scrollTop" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Sticky navbar
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('sticky', window.scrollY > 60);
-        });
-
-        // Mobile menu
-        const menuBtn = document.querySelector('.menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        menuBtn.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('open');
-            menuBtn.classList.toggle('open', isOpen);
-            menuBtn.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                menuBtn.classList.remove('open');
-                menuBtn.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Scroll-to-top
-        const scrollTopBtn = document.getElementById('scrollTop');
-        window.addEventListener('scroll', () => {
-            scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-        });
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Fade-in on scroll
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(e => {
-                if (e.isIntersecting) {
-                    e.target.classList.add('visible');
-                    io.unobserve(e.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll(
-            '.about-text, .about-cards, .lang-card, .project-card, .edu-card, .contact-layout'
-        ).forEach(el => {
-            el.classList.add('fade-in');
-            io.observe(el);
-        });
-    </script>
+    <a class="scroll-top" id="scrollTop" href="#hero" aria-label="Back to top">
+        <svg class="icon" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><use href="#i-chevron-up"/></svg>
+    </a>
 </body>
 </html>
